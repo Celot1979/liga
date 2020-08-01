@@ -36,12 +36,12 @@ class Liga():
                 for se in range(20):
                     id = str(input("ID del equipo: "))
                     if id == "salir":
-                        self.mostrar_equipo()
+                        self.mostrar_equipo_segunda()
                         print("Gracias por usar nuestro programa")
                         exit()
                     nombre_equipo = str(input("Nombre del equipo: "))
                     if nombre_equipo == "salir":
-                        self.mostrar_equipo()
+                        self.mostrar_equipo_segunda()
                         print("Gracias por usar nuestro programa")
                         exit()
                     print("Has agregado con éxito el equipo´")
@@ -50,12 +50,12 @@ class Liga():
                 for e in range(20):
                     id = str(input("ID del equipo: "))
                     if id == "salir":
-                        self.mostrar_equipo()
+                        self.mostrar_equipo_segundaB()
                         print("Gracias por usar nuestro programa")
                         exit()
                     nombre_equipo = str(input("Nombre del equipo: "))
                     if nombre_equipo == "salir":
-                        self.mostrar_equipo()
+                        self.mostrar_equipo_segundaB()
                         print("Gracias por usar nuestro programa")
                         exit()
                     print("Has agregado con éxito el equipo´")
@@ -64,18 +64,42 @@ class Liga():
                 print("Gracias por usar nuestro programa")
 
 #----------------------------------------------------------------------------------------------------------------------
-
+# ----------------------------------------------------------------------------------------------------------------------
     def mostrar_equipo(self):
         print("Los equipos son : ")
+
         for i in self.primera.keys():
             print("ID: " + str(i))
             print("Nombre: " + str(self.primera[i]))
 
+#
+    def mostrar_equipo_segunda(self):
+        print("Los equipos son : ")
+        for i in self.segunda.keys():
+            print("ID: " + str(i))
+            print("Nombre: " + str(self.segunda[i]))
+
+    def mostrar_equipo_segundaB(self):
+        print("Los equipos son : ")
+        for i in self.segundaB.keys():
+            print("ID: " + str(i))
+            print("Nombre: " + str(self.segundaB[i]))
+
 # ----------------------------------------------------------------------------------------------------------------------
+#----------------------------------------------------------------------------------------------------------------------
+
+
     def borrar_equipo(self,nombre):
         del self.primera[nombre]
+    def borrar_equipo_segunda(self,nombre):
+        del self.segunda[nombre]
+    def borrar_equipoB(self,nombre):
+        del self.segundaB[nombre]
 
- # ----------------------------------------------------------------------------------------------------------------------
+# ----------------------------------------------------------------------------------------------------------------------
+# ----------------------------------------------------------------------------------------------------------------------
+
+
     def modificar (self, nombre_equipo=None):
         opcion = int(input("Seleccione :\n1)Si desea modificar ID\n2)Si desa modificar nombre: "))
         if opcion == 1:
