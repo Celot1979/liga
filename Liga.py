@@ -1,4 +1,4 @@
-#Segunda prueba
+
 
 class Liga():
     primera = {}
@@ -14,55 +14,56 @@ class Liga():
         return "El nombre de la liga es {}\nLa forman {} equipos\nEn {}".format(self.nombre, self.equipos,
                                                                                 self.categoria)
     def añadir_equipos(self, id, nombre_equipo):
-        pr= str(input("Quieres añadir un equipo: "))
-        while pr == "Si" or pr =="si":
-            p= str(input("División a la que pertenece?: "))
-            if p == "1":
+        p= str(input("¿Quieres añadir un equipo?: "))
+        if p == "si" or p== "si":
+            c= str(input("¿Categoria del equipo que queires incluir?: \n1. Primera\n2. Segunda\n3. SegundaB\n ==>"))
+            if c == "1":
                 for i in range(20):
-                    id = str(input("Cual es la Id: "))
+                    id= str(input("ID del equipo: "))
                     if id == "salir":
                         self.mostrar_equipo()
+                        print("Gracias por usar nuestro programa")
                         exit()
-                    nombre_equipo = str(input("Nombre del equipo: "))
-                    if nombre_equipo =="salir":
+                    nombre_equipo= str(input("Nombre del equipo: "))
+                    if nombre_equipo == "salir":
                         self.mostrar_equipo()
+                        print("Gracias por usar nuestro programa")
                         exit()
                     print("Has agregado con éxito el equipo´")
                     self.primera[id] = nombre_equipo
 
-
-
-            elif p == "2":
-                for i in range(20):
-                    id = str(input("Cual es la Id: "))
+            elif c == "2":
+                for se in range(20):
+                    id = str(input("ID del equipo: "))
                     if id == "salir":
                         self.mostrar_equipo()
+                        print("Gracias por usar nuestro programa")
                         exit()
                     nombre_equipo = str(input("Nombre del equipo: "))
                     if nombre_equipo == "salir":
                         self.mostrar_equipo()
+                        print("Gracias por usar nuestro programa")
                         exit()
                     print("Has agregado con éxito el equipo´")
-                    self.primera[id] = nombre_equipo
-            elif p == "3":
-                for i in range(20):
-                    id = str(input("Cual es la Id: "))
+                    self.segunda[id] = nombre_equipo
+            elif c == "3":
+                for e in range(20):
+                    id = str(input("ID del equipo: "))
                     if id == "salir":
                         self.mostrar_equipo()
+                        print("Gracias por usar nuestro programa")
                         exit()
                     nombre_equipo = str(input("Nombre del equipo: "))
                     if nombre_equipo == "salir":
                         self.mostrar_equipo()
+                        print("Gracias por usar nuestro programa")
                         exit()
-                    print("Has agregado un equipo con éxito")
+                    print("Has agregado con éxito el equipo´")
                     self.segundaB[id] = nombre_equipo
+            else:
+                print("Gracias por usar nuestro programa")
 
-
-
-
-            pr = str(input("Quieres añadir un equipo: "))
-
-
+#----------------------------------------------------------------------------------------------------------------------
 
     def mostrar_equipo(self):
         print("Los equipos son : ")
@@ -70,9 +71,11 @@ class Liga():
             print("ID: " + str(i))
             print("Nombre: " + str(self.primera[i]))
 
+# ----------------------------------------------------------------------------------------------------------------------
     def borrar_equipo(self,nombre):
         del self.primera[nombre]
 
+ # ----------------------------------------------------------------------------------------------------------------------
     def modificar (self, nombre_equipo=None):
         opcion = int(input("Seleccione :\n1)Si desea modificar ID\n2)Si desa modificar nombre: "))
         if opcion == 1:
@@ -86,8 +89,9 @@ class Liga():
             id= input("Ingrese el nuevo nombre: ")
             self.primera[id]= nombre_equipo
         print(self.primera[id])
-
-
+#----------------------------------------------------------------------------------------------------------------------
+#----------------------------------------------------------------------------------------------------------------------
+#----------------------------------------------------------------------------------------------------------------------
 
 class Equipos(Liga):
     jugadores= {}
@@ -95,10 +99,10 @@ class Equipos(Liga):
         self.nombre = nombre_liga
         self.equipos = numero_equipos
         self.categoria = categoria
-
+# ----------------------------------------------------------------------------------------------------------------------
     def __str__(self):
         return "En la {} tienen {} con su categoria: {}".format(self.nombre, self.equipos, self.categoria)
-
+ # ----------------------------------------------------------------------------------------------------------------------
     def añadir_jugadores(self, id, nombre_jugador, edad, posicion, nacionalidad ):
         r= str(input("Quieres añadir un jugador: "))
         while r == "Si" or r =="si":
@@ -114,7 +118,7 @@ class Equipos(Liga):
                 self.jugadores[id] = nombre_jugador, edad, posicion, nacionalidad
         if r != "si" or r != "SI":
             print(" Error 506 !!!! Vuelva al principio !!!")
-
+# ----------------------------------------------------------------------------------------------------------------------
 
 
 
@@ -127,35 +131,22 @@ class Equipos(Liga):
             print("Edad: " + str(self.jugadores[i][1]))
             print("Posicion: " + str(self.jugadores[i][2]))
             print("Nacionalidad: " + str(self.jugadores[i][3]))
-
-
-
-
-
-
-
-
-
-
-
-
-       
-
-
-
+#----------------------------------------------------------------------------------------------------------------------
+#----------------------------------------------------------------------------------------------------------------------
+# #----------------------------------------------------------------------------------------------------------------------
 
 l = Liga (nombre_liga= "BBVA", numero_equipos= 20, categoria= "Primera Division")
 print(l)
 l.añadir_equipos(1, "Real Madrid")
-l.añadir_equipos()
+l.añadir_equipos(2,"FC.Barcelona")
 #l.mostrar_equipo()
 #l.mostrar_uno()
 #p = Equipos("BBVA",20,"Primera Division")
-print(p)
+#print(p)
 #p.añadir_jugadores(1,"Pablo", 23, "Portero", "española")
 #p.añadir_jugadores()
 #p.mostrar_jugadores()
 
-
-
-
+#----------------------------------------------------------------------------------------------------------------------
+#----------------------------------------------------------------------------------------------------------------------
+#----------------------------------------------------------------------------------------------------------------------
