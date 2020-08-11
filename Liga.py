@@ -1,21 +1,20 @@
 import csv
-
 class Liga():
-	  
+
     primera = {}
     segunda = {}
     segundaB = {}
-
+    pr=[]
 
     def __init__(self, nombre_liga, numero_equipos):
         self.nombre = nombre_liga
         self.equipos = numero_equipos
-        
+
 
     def __str__(self):
         return "El nombre de las ligas son:  {}\nLa forman {} equipos\n".format(self.nombre, self.equipos)
-                                                                             
-    def añadir_equipos(self, id, nombre_equipo):
+
+    def gestion_equipos(self, id, nombre_equipo):
         p= str(input("¿Quieres añadir un equipo?:\n1.Si\n2.No\nNOTA:Si no desea implementar más datos, escriba: salir\nEscriba aquí su respuesta ==> "))
         if p == "si" or p== "si":
             c= str(input("\n¿Categoria del equipo que quieres incluir?: \n1. Primera\n2. Segunda\n3. SegundaB\n ==>"))
@@ -24,8 +23,11 @@ class Liga():
                     id= str(input("ID del equipo: "))
                     if id == "salir":
                         self.mostrar_equipo()
-                        print("Gracias por usar nuestro programa")
+                        print("Si ")
                         exit()
+                    if id == "borrar":
+                        self.borrar_equipo()
+
                     nombre_equipo= str(input("Nombre del equipo: "))
                     if nombre_equipo == "salir":
                         self.mostrar_equipo()
@@ -33,20 +35,17 @@ class Liga():
                         exit()
                     print("Has agregado con éxito el equipo´")
                     self.primera[id] = nombre_equipo
-            #Vamos a intentar introducir el Borrado en la mimas función principal.
 
             elif c == "2":
                 for se in range(20):
                     id = str(input("ID del equipo: "))
                     if id == "salir":
-                        self.mostrar_segunda()
+                        self.mostrar_equipo_segunda()
                         print("Gracias por usar nuestro programa")
                         exit()
-                    if id == "borrar":
-                        self.borrar_equipo()
                     nombre_equipo = str(input("Nombre del equipo: "))
                     if nombre_equipo == "salir":
-                        self.mostrar_segunda()
+                        self.mostrar_equipo_segunda()
                         print("Gracias por usar nuestro programa")
                         exit()
                     print("Has agregado con éxito el equipo´")
@@ -55,67 +54,89 @@ class Liga():
                 for e in range(20):
                     id = str(input("ID del equipo: "))
                     if id == "salir":
-                        self.mostrar_segundaB()
+                        self.mostrar_equipo_segundaB()
                         print("Gracias por usar nuestro programa")
                         exit()
                     nombre_equipo = str(input("Nombre del equipo: "))
                     if nombre_equipo == "salir":
-                        self.mostrar_segundaB()
+                        self.mostrar_equipo_segundaB()
                         print("Gracias por usar nuestro programa")
                         exit()
                     print("Has agregado con éxito el equipo´")
                     self.segundaB[id] = nombre_equipo
             else:
                 print("Gracias por usar nuestro programa")
+
+
+
         else:
-        	print("Ha decidido no continuar. Gracias por usar nuestro programa ")
-        	exit()
+            print("Esperamos que la experiencia con nuestro programa fuera satisfactoria")
+            exit()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #-------------------------------------------------------------------------------------------------------------------------------------------
 # --------------------------------------------------------------------------------------------------------------------------------------------
     def mostrar_equipo(self):
         print("Los equipos son : ")
-
         for i in self.primera.keys():
             print("ID: " + str(i))
             print("Nombre: " + str(self.primera[i]))
-
         with open('Primera.csv', 'w') as csv_file:
             writer = csv.writer(csv_file)
             for key, value in self.primera.items():
                 writer.writerow([key, value])
 
-    def mostrar_segunda(self):
-        print("Los equipos de segunda son: ")
-
+    def mostrar_equipo_segunda(self):
+        print("Los equipos son : ")
         for s in self.segunda.keys():
-            print("ID :" + str(s))
+            print("ID: " + str(s))
             print("Nombre: " + str(self.segunda[s]))
         with open('segunda.csv', 'w') as csv_file:
             writer = csv.writer(csv_file)
             for key, value in self.segunda.items():
                 writer.writerow([key, value])
 
-    def mostrar_segundaB(self):
-        print("Los equipos de segundaB son: ")
-
-        for b in self.segunda.keys():
-            print("ID :" + str(b))
+    def mostrar_equipo_segundaB(self):
+        print("Los equipos son : ")
+        for b in self.segundaB.keys():
+            print("ID: " + str(b))
             print("Nombre: " + str(self.segundaB[b]))
         with open('segundabB.csv', 'w') as csv_file:
             writer = csv.writer(csv_file)
             for key, value in self.segundaB.items():
                 writer.writerow([key, value])
 
-# -------------------------------------------------------------------------------------------------------------------------------------------
-# -------------------------------------------------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------------------------------------------------------------
+#-------------------------------------------------------------------------------------------------------------------------------------------
 
-    def borrar_equipo(self,nombre):
-        del self.primera[nombre]
-    def borrar_equipo_segunda(self,nombre):
-        del self.segunda[nombre]
-    def borrar_equipoB(self,nombre):
-        del self.segundaB[nombre]
+
+    def borrar_equipo(self):
+        id = input("id: ")
+        self.primera.pop(id)
+        self.mostrar_equipo()
+        exit()
 
 # --------------------------------------------------------------------------------------------------------------------------------------------
 # --------------------------------------------------------------------------------------------------------------------------------------------
@@ -134,7 +155,7 @@ class Liga():
             id= input("Ingrese el nuevo nombre: ")
             self.primera[id]= nombre_equipo
         print(self.primera[id])
-        
+
     def modificar_Segunda (self, nombre_equipo=None):
         opcion = int(input("Seleccione :\n1)Si desea modificar ID\n2)Si desa modificar nombre: "))
         if opcion == 1:
@@ -148,7 +169,7 @@ class Liga():
             id= input("Ingrese el nuevo nombre: ")
             self.segunda[id]= nombre_equipo
         print(self.segunda[id])
-        
+
     def modificar_SegundaB (self, nombre_equipo=None):
         opcion = int(input("Seleccione :\n1)Si desea modificar ID\n2)Si desa modificar nombre: "))
         if opcion == 1:
@@ -211,10 +232,10 @@ class Equipos(Liga):
 # #----------------------------------------------------------------------------------------------------------------------
 
 l = Liga (nombre_liga= "Primera BBVA, Segunda SmartBank, Segunda B", numero_equipos= 20)
-print(l)
-l.añadir_equipos(1, "Real Madrid")
-l.añadir_equipos(2,"FC.Barcelona")
-
+#print(l)
+l.gestion_equipos(1, "Real Madrid")
+l.borrar_contacto(nombre="pepe")
+#l.añadir_equipos(2,"FC.Barcelona")
 #l.mostrar_equipo()
 #l.mostrar_uno()
 #p = Equipos("BBVA",20,"Primera Division")
