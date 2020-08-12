@@ -9,41 +9,130 @@ primera = {}
 segunda = {}
 segundaB = {}
 pr=[]
-decision_usuario= str(input("Qué desea hacer:\n1.Gestionar equipos de fútbol\n2.Gestionar jugadores\nEscriba aquí su respuesta\n==>"))
-if decision_usuario == "1":
-    gestionar=str(input("Que acción desea realizar: \n1 Agregar equipos de fútbol\n2 Borrar Equipo de fútbol\n3 Mostrar equipo de futbol"
-                        "4 Modificar -nombre o id- de Equipo\n ==>"))
-    if gestionar == "1":
-        c = str(input("\n¿Categoria del equipo que quieres incluir?: \n1. Primera\n2. Segunda\n3. SegundaB\n Salir\n==>"))
-        if c == "1":
-            print(" Ha decidido registrar equipos de 1º División ")
-            ce= str(input(" Qué opción desea realizar: \n1.Agregar equipo,\n2.Borrar equipo\n3.Mostrar equipos\n Mostrar equipos\n4.==>"))
-            if ce == "1":
-                for i in range(20):
-                    id = str(input("ID del equipo: "))
-                    nombre_equipo = str(input("Nombre del equipo: "))
-                    primera[id] = nombre_equipo
-                    print(primera)
-                    with open("primeraB.csv", "w") as csv_file:
-                        write = csv.writer(csv_file)
-                        for key, value in primera.items():
-                            write.writerow([key, value])
-                    if id == "salir" or nombre_equipo=="salir":
-                        print(primera)
-                        with open("primeraB.csv", "w") as csv_file:
-                            write = csv.writer(csv_file)
-                            for key, value in primera.items():
-                                write.writerow([key, value])
-                                pass
+
+decision_usuario= str(input("Qué desea hacer:\n1.Gestionar equipos de fútbol\n2.Gestionar jugadores\nEscriba aquí "
+"su respuesta\n==>"))
+def borrar():
+    B = str(input("¿En que categoria deseas borrar el equipo?:\n1Primera\nSegunda\nSegundaB"))
+    if B== "1":
+        id = str(input(" Introducce la ID del equipo: "))
+        primera.pop(id)
+        with open("primeraB.csv", "w") as csv_file:
+            write = csv.writer(csv_file)
+            for key, value in primera.items():
+                write.writerow([key, value])
+
+    elif B=="2":
+        id = str(input(" Introducce la ID del equipo: "))
+        segunda.pop(id)
+        with open("segunda2.csv", "w") as csv_file:
+            write = csv.writer(csv_file)
+            for key, value in segunda.items():
+                write.writerow([key, value])
+    elif B=="3":
+        id = str(input(" Introducce la ID del equipo: "))
+        segundaB.pop(id)
+        for i in range(20):
+            id = str(input("ID del equipo: "))
+            nombre_equipo = str(input("Nombre del equipo: "))
+            segundaB[id] = nombre_equipo
+            if id == "salir" or nombre_equipo == "salir":
+                añadir_archivo1()
+                exit()
 
 
-                                ce = str(input(" Qué opción desea realizar: \n1.Agregar equipo,\n2.Borrar equipo\n3.Mostrar equipos\n Mostrar equipos\n4.==>"))
 
-            if ce == "2":
-                print("Deseas borrar un equipo")
-                id = str(input(" Introducce la ID del equipo: "))
-                primera.pop(id)
-                print(primera)
+def agregar_equipo():
+    for i in range(20):
+        id = str(input("ID del equipo: "))
+        nombre_equipo = str(input("Nombre del equipo: "))
+        primera[id] = nombre_equipo
+        if id == "salir" or nombre_equipo=="salir":
+            añadir_archivo1()
+            exit()
+        elif id == "borrar" or nombre_equipo=="borrar":
+            borrar()
+            añadir_archivo1()
+            exit()
+
+
+
+
+
+
+
+
+
+
+
+        #print(primera)
+
+def añadir_archivo1():
+    with open("primeraB.csv", "w") as csv_file:
+        write = csv.writer(csv_file)
+        for key, value in primera.items():
+            write.writerow([key, value])
+
+def agregar_equipoB():
+    for i in range(20):
+        id = str(input("ID del equipo: "))
+        nombre_equipo = str(input("Nombre del equipo: "))
+        segunda[id] = nombre_equipo
+        if id == "salir" or nombre_equipo=="salir":
+            añadir_archivo2()
+            exit()
+        elif id == "borrar" or nombre_equipo=="borrar":
+            borrar()
+            añadir_archivo2()
+            exit()
+        #print(segunda)
+def añadir_archivo2():
+    with open("segunda2.csv", "w") as csv_file:
+        write = csv.writer(csv_file)
+        for key, value in segunda.items():
+            write.writerow([key, value])
+
+def agregar_equipoC():
+    for i in range(20):
+        id = str(input("ID del equipo: "))
+        nombre_equipo = str(input("Nombre del equipo: "))
+        segundaB[id] = nombre_equipo
+        if id == "salir" or nombre_equipo=="salir":
+            añadir_archivo3()
+            exit()
+        elif id == "borrar" or nombre_equipo=="borrar":
+            borrar()
+            añadir_archivo3()
+            exit()
+        #print(segundaB)
+def añadir_archivo3():
+    with open("segunda3.csv", "w") as csv_file:
+        write = csv.writer(csv_file)
+        for key, value in segundaB.items():
+            write.writerow([key, value])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
