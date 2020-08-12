@@ -102,3 +102,15 @@ if decision_usuario == "1":
 
 """ Queda averiguar como a salir se pueda escoger nuevamente el menú e ir a borrar"""
 
+def modificar():
+    opcion = input("Seleccione la categoria del equipo que desea modificar:\n1.Primera\n2.Segunda\n3.SegundaB)
+    if opcion == 1:
+        id = input("Ingrese el Id que desea modificar: ")
+        primera.pop(id)
+        id = input("Ingrese el nuevo ID")
+        nombre= input("Ingrese el nuevo nombre")
+        primera[id]=nombre
+
+"""elif id == "modificar" or nombre_equipo=="modificar":
+                modificar()
+                exit()""
