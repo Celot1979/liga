@@ -111,6 +111,3 @@ def modificar():
         nombre= input("Ingrese el nuevo nombre")
         primera[id]=nombre
 
-"""elif id == "modificar" or nombre_equipo=="modificar":
-                modificar()
-                exit()""

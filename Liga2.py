@@ -111,15 +111,22 @@ def modificar():
 # --------------------------------------------------------------------------------------------------------------------
 
 def gestionar_categorias():
-    c = str(input("Desea gestionar:\n1.Primera División\n2.Segunda División\n3.SegundaB División\n===>"))
+    c = str(input("Desea gestionar:\n1.Primera División\n2.Segunda División\n3.SegundaB División\nSarlir===>"))
     if c == "1":
-        print("OPCIONES: Agregar (ID y nombre del equipo)\n          Escribir -salir-\n          Escribir -borrar-\n"
-              "         Escribir -modificar-\n         ===>")
+        print("OPCIONES: Agregar (ID y nombre del equipo)\n\n Escribir -salir-  Escribir -borrar-  Escribir -modificar"
+              "- Para realizar esas acciones-===>\n")
+
         for i in range(20):
             id = str(input("ID del equipo: "))
+            if id == "salir":
+                añadir_archivo1()
+                exit()
             nombre_equipo = str(input("Nombre del equipo: "))
+            if nombre_equipo == "salir":
+                añadir_archivo1()
+                exit()
             primera[id] = nombre_equipo
-            if id == "salir" or nombre_equipo == "salir":
+            if id == "salir":
                 añadir_archivo1()
                 exit()
             elif id == "borrar" or nombre_equipo == "borrar":
@@ -133,6 +140,9 @@ def gestionar_categorias():
     elif c == "2":
         for i in range(20):
             id = str(input("ID del equipo: "))
+            if id == "salir" or id == "Salir":
+                añadir_archivo2()
+                exit()
             nombre_equipo = str(input("Nombre del equipo: "))
             segunda[id] = nombre_equipo
             if id == "salir" or nombre_equipo == "salir":
@@ -149,15 +159,20 @@ def gestionar_categorias():
     elif c == "3":
         for i in range(20):
             id = str(input("ID del equipo: "))
+            if id == "salir" or id == "Salir":
+                añadir_archivo3()
+                exit()
             nombre_equipo = str(input("Nombre del equipo: "))
             segundaB[id] = nombre_equipo
             if id == "salir" or nombre_equipo == "salir":
-                añadir_archivo2()
+                añadir_archivo3()
                 exit()
             elif id == "borrar" or nombre_equipo == "borrar":
                 borrar()
                 añadir_archivo3()
                 exit()
+    elif c == "Salir" or c== "Salir":
+        exit()
     else:
         print("Gracias por usar nuestro programa. Esperamos volver a verle pronto")
         exit()
