@@ -33,11 +33,11 @@ def gestionar_jugadores():
         edad = str(input("Edad: "))
         posicion = str(input("Posicion: "))
         nacionalidad = str(input("Nacionalidad: "))
-        jugador_S[nombre] = edad, posicion, nacionalidad
+        jugador_Segunda[nombre] = edad, posicion, nacionalidad
 
     elif j == "3":
         nombre = str(input("Nombre del Jugador: "))
         edad = str(input("Edad: "))
         posicion = str(input("Posicion: "))
         nacionalidad = str(input("Nacionalidad: "))
-        jugador_B[nombre] = edad, posicion, nacionalidad
+        jugador_SegundaB[nombre] = edad, posicion, nacionalidad
