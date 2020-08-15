@@ -43,6 +43,17 @@ def borrar_jugador():
 #------------------------------------------------------------------------------------------------------------------
 
 def modificar_jugador():
+    modif= str(input("Qué desea modificar: (nombre), (edad), (posicion), (nacionalidad"))
+    if modif == "nombre" or modif == "Nombre":
+        nombre = str(input("Ingresa el nombre que deseas modificar"))
+        jugador.pop(nombre)
+        nombre = str(input("Ingrese el nuevo nombre"))
+        jugador[nombre] = nombre
+        archivo_primero()
+#Agrega el nobre dos veces. Quizás tendremos que ir poniendo uno a uno los campos que no se han modificado
+
+
+
 
 
 #------------------------------------------------------------------------------------------------------------------
@@ -73,7 +84,8 @@ def gestionar_jugadores():
                         pass
                     else:
                         exit()
-            elif seguir_dos == "modificar" or seguir_dos == "Modificar":
+                elif seguir_dos == "modificar" or seguir_dos == "Modificar":
+                    modificar_jugador()
 
 
 
