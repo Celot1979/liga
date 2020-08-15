@@ -17,8 +17,8 @@ def archivo_segundo():
 #------------------------------------------------------------------------------------------------------------------
 #------------------------------------------------------------------------------------------------------------------
 def gestionar_jugadores():
-    j = str(input("¿De qué categoría quieres gestionar la plantilla?\n1.Primera División\n2.Segunda División"
-                  "\n3.SegundaB División\n==>"))
+    j = str(input("¿De qué categoría quieres gestionar la plantilla?\n1. Primera División\n2. Segunda División"
+                  "\n3. SegundaB División\n==>"))
     if j == "1":
         nombre = str(input("\nNombre del Jugador: "))
         edad = str(input("Edad: "))
