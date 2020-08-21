@@ -74,7 +74,7 @@ def borrar_jugador3():
             write = csv.writer(csv_file)
             for Key, value in jugador_SegundaB.items():
                 write.writerow([Key, value])
-    elif bs == "no" or bs == "No":
+    elif bsB == "no" or bsB == "No":
         archivo_segundoB()
         pass
     else:
@@ -171,7 +171,7 @@ def modificar_jugadorSegundaB():
             print("ERROR 750")
             exit()
 
-    elif modif == "No" or modif == "no":
+    elif mod == "No" or mod == "no":
         exit()
     else:
         print(" ERROR  750 ")
