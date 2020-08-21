@@ -65,7 +65,7 @@ def borrar_jugador_dos():
         print(" Error 405")
         exit()
 
-def borrar_jugador3():
+def borrar_jugador_tres():
     bsB = str(input("¿ Quieres borrar un jugador: Si / No \n==>"))
     if bsB == "si" or bsB == "Si":
         nombre = str(input(" Introduce el nombre del jugador:"))
@@ -254,20 +254,34 @@ def gestionar_jugadores():
             else:
                 print(" ERROR  750 ")
                 break
+    elif j == "3":
+        for n in range(20):
+            nombre = str(input("\nNombre del Jugador: ==> "))
+            edad = str(input("Edad: "))
+            posicion = str(input("Posicion: ==> "))
+            nacionalidad = str(input("Nacionalidad: ==> "))
+            jugador_SegundaB[nombre] = edad, posicion, nacionalidad
+            con = str(input("¿Quiere seguir añadiendo jugadores?: SI/No ==> "))
+            if con == "si" or con == "Si":
+                archivo_segundoB()
+                pass
+            elif con == "no" or con == "No":
+                seguir_dos = str(input(" Qué opción desea ejecutar?: (Borrar)/(modificar)/(salir)\n ==>"))
+                if seguir_dos == "borrar" or seguir_dos == "Borrar":
+                    borrar_jugador_tres()
+                    archivo_segundoB()
+                    seguir_tres = str(input("¿Quieres seguir añadiendo jugadores? Si / No ==> "))
+                    if seguir_tres == "si" or seguir_tres == "Si":
+                        pass
+                    else:
+                        exit()
+                elif seguir_dos == "modificar" or seguir_dos == "Modificar":
+                    modificar_jugadorSegundaB()
+                elif seguir_dos == "salir" or seguir_dos == "Salir":
+                    archivo_segundoB()
+                    exit()
+            else:
+                print(" ERROR  750 ")
+                break
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
 
